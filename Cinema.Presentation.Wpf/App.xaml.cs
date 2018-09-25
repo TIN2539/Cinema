@@ -1,4 +1,5 @@
-﻿using Cinema.Presentation.Wpf.ViewModels;
+﻿using Cinema.Domain;
+using Cinema.Presentation.Wpf.ViewModels;
 using Cinema.Presentation.Wpf.Views;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,8 @@ namespace Cinema.Presentation.Wpf
         {
             base.OnStartup(e);
 
-            var viewModel = new MainViewModel();
+            var cinemaManager = new CinemaManager();
+            var viewModel = new MainViewModel(cinemaManager);
             var view = new MainView(viewModel);
 
             view.Show();

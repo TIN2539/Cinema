@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cinema.Domain;
+using Cinema.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +10,13 @@ namespace Cinema.Presentation.Wpf.ViewModels
 {
    public sealed class MainViewModel
     {
-        private readonly IEnumerable<string> movies;
+        private readonly IEnumerable<Movie> movies;
 
-        public MainViewModel()
+        public MainViewModel(ICinemaManager cinemaManager)
         {
-            movies = new[] { "Criminal", "Trash", "Scary" };
+            movies = cinemaManager.GetMovies();
         }
 
-        public IEnumerable<string> Movies => movies;
+        public IEnumerable<Movie> Movies => movies;
     }
 }

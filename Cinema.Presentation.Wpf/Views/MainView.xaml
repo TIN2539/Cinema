@@ -3,9 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Models="clr-namespace:Cinema.Domain.Models;assembly=Cinema.Domain.Models"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="300" Width="300">
     <Grid>
-        <ListBox Margin="5" ItemsSource="{Binding Movies}" />
-    </Grid>
+        <ListBox Margin="5" ItemsSource="{Binding Movies}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type Models:Movie}">
+                    <TextBlock Text="{Binding Path=Title.Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Models
 {
-    internal sealed class Language
+    public sealed class Language
     {
         private readonly string name;
 

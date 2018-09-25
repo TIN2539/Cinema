@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Models
 {
-    internal sealed class Actor
+    public sealed class Actor
     {
         private readonly string name;
         private readonly string surname;

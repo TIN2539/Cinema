@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cinema.Domain.Models
 {
-    internal sealed class Movie
+    public sealed class Movie
     {
         private readonly MovieTitle title;
         private readonly DateTime date;

@@ -1,6 +1,6 @@
 ﻿namespace Cinema.Domain.Models
 {
-    internal class MovieTitle
+    public class MovieTitle
     {
         private readonly string name;
 

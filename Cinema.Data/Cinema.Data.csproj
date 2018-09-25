@@ -41,7 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICinemaDataGateway.cs" />
+    <Compile Include="ICinemaDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cinema.Domain.Models\Cinema.Domain.Models.csproj">
+      <Project>{1FDAB320-A1AA-45E3-BC20-2BBCC9ACE8E9}</Project>
+      <Name>Cinema.Domain.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

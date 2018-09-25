@@ -8,13 +8,13 @@ namespace Cinema.Domain.Models
 {
     internal sealed class Movie
     {
-        private readonly string title;
+        private readonly MovieTitle title;
         private readonly DateTime date;
         private readonly Language language;
         private readonly IEnumerable<Actor> actors;
         private readonly Producer producer;
 
-        public Movie(string title, DateTime date, Language language, IEnumerable<Actor> actors, Producer producer)
+        public Movie(MovieTitle title, DateTime date, Language language, IEnumerable<Actor> actors, Producer producer)
         {
             this.title = title;
             this.date = date;
@@ -23,7 +23,7 @@ namespace Cinema.Domain.Models
             this.producer = producer;
         }
 
-        public string Title => title;
+        public MovieTitle Title => title;
 
         internal DateTime Date => date;
 

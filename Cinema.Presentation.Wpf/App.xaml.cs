@@ -1,4 +1,5 @@
-﻿using Cinema.Domain;
+﻿using Cinema.Data.Stub;
+using Cinema.Domain;
 using Cinema.Presentation.Wpf.ViewModels;
 using Cinema.Presentation.Wpf.Views;
 using System;
@@ -20,7 +21,8 @@ namespace Cinema.Presentation.Wpf
         {
             base.OnStartup(e);
 
-            var cinemaManager = new CinemaManager();
+            var dataService = new StubCinemaDataService();
+            var cinemaManager = new CinemaManager(dataService);
             var viewModel = new MainViewModel(cinemaManager);
             var view = new MainView(viewModel);
 

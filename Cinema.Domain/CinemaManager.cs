@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cinema.Data;
 using Cinema.Domain.Models;
 
 namespace Cinema.Domain
 {
     public class CinemaManager : ICinemaManager
     {
+        private readonly ICinemaDataService dataService;
+
+        public CinemaManager(ICinemaDataService dataService)
+        {
+            this.dataService = dataService;
+        }
+
         public IEnumerable<Movie> GetMovies()
         {
-            return new[]
-            {
-                new Movie(
-                    new MovieTitle("Star Wars. The Last Jedi"),
-                    new DateTime(2017, 12, 15),
-                    new Language("English"),
-                    new[]
-                    {
-                        new Actor("Mark", "Hamill"),
-                        new Actor("Harrison", "Ford"),
-                        new Actor("Ewan", "McGregor")
-                    },
-                    new Producer("Rian", "Johnson")
-               )
-            };
+            ICinemaDataGateway dataGateway = dataService.OpenDataGateway();
+            IEnumerable<Movie> movies = dataGateway.GetMovies();
+            dataService.CloseDataGateway(dataGateway);
+            return movies;
         }
     }
 }
